@@ -3,6 +3,7 @@ package socketio
 import (
 	"errors"
 	"fmt"
+	"net/http"
 	"net/url"
 	"strings"
 
@@ -69,7 +70,9 @@ func (c *Client) Connect() error {
 		Transports: []transport.Transport{polling.Default},
 	}
 
-	enginioCon, err := dialer.Dial(c.url, nil)
+	header := http.Header{}
+	header.Add("content-type", "application/json")
+	enginioCon, err := dialer.Dial(c.url, header)
 	if err != nil {
 		return err
 	}

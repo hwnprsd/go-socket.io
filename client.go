@@ -4,7 +4,6 @@ import (
 	"errors"
 	"fmt"
 	"net/url"
-	"path"
 	"strings"
 
 	"github.com/googollee/go-socket.io/engineio"

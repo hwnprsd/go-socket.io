@@ -2,6 +2,7 @@ package socketio
 
 import (
 	"errors"
+	"fmt"
 	"net/url"
 	"path"
 	"strings"
@@ -47,6 +48,7 @@ func NewClient(addr string, opts *engineio.Options) (*Client, error) {
 		u.Path += "/"
 	}
 
+	fmt.Println("URL = ", u.String())
 	return &Client{
 		namespace: namespace,
 		url:       u.String(),
